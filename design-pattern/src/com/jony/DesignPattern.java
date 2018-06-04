@@ -13,6 +13,10 @@ import com.jony.behavior.strategy.Price;
 import com.jony.behavior.templatemethod.Account;
 import com.jony.behavior.templatemethod.CDAccount;
 import com.jony.behavior.templatemethod.MoneyMarketAccount;
+import com.jony.creational.builder.Builder;
+import com.jony.creational.builder.ConcreteBuilder;
+import com.jony.creational.builder.Director;
+import com.jony.creational.builder.Product;
 import com.jony.structural.adapter.Adaptee;
 import com.jony.structural.adapter.ClassAdapter;
 import com.jony.structural.adapter.ObjectAdapter;
@@ -69,7 +73,12 @@ public class DesignPattern {
         component = new ConcreteDecoratorB(component);
         component.operation();
 
-
+        Builder builder = new ConcreteBuilder();
+        Director director = new Director(builder);
+        director.construct();
+        Product product = builder.retriveProduct();
+        System.out.println(product.getPart1());
+        System.out.println(product.getPart2());
 
     }
 
