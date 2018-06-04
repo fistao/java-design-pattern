@@ -17,6 +17,10 @@ import com.jony.creational.builder.Builder;
 import com.jony.creational.builder.ConcreteBuilder;
 import com.jony.creational.builder.Director;
 import com.jony.creational.builder.Product;
+import com.jony.creational.factory.DatabaseLoggerFactory;
+import com.jony.creational.factory.FileLoggerFactory;
+import com.jony.creational.factory.Logger;
+import com.jony.creational.factory.LoggerFactory;
 import com.jony.structural.adapter.Adaptee;
 import com.jony.structural.adapter.ClassAdapter;
 import com.jony.structural.adapter.ObjectAdapter;
@@ -79,6 +83,13 @@ public class DesignPattern {
         Product product = builder.retriveProduct();
         System.out.println(product.getPart1());
         System.out.println(product.getPart2());
+
+        LoggerFactory loggerFactory = new DatabaseLoggerFactory();
+        Logger logger = loggerFactory.createLogger();
+        logger.writeLog();
+        loggerFactory = new FileLoggerFactory();
+        logger = loggerFactory.createLogger();
+        logger.writeLog();
 
     }
 
