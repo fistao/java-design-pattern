@@ -11,6 +11,8 @@ import com.jony.behavior.strategy.Price;
 import com.jony.behavior.templatemethod.Account;
 import com.jony.behavior.templatemethod.CDAccount;
 import com.jony.behavior.templatemethod.MoneyMarketAccount;
+import com.jony.creational.abstractfactory.SkinFactory;
+import com.jony.creational.abstractfactory.SpringSkinFactory;
 import com.jony.creational.builder.Builder;
 import com.jony.creational.builder.ConcreteBuilder;
 import com.jony.creational.builder.Director;
@@ -88,6 +90,12 @@ public class DesignPattern {
         loggerFactory = new FileLoggerFactory();
         logger = loggerFactory.createLogger();
         logger.writeLog();
+
+        SkinFactory skinFactory = new SpringSkinFactory();
+        skinFactory.createButton().display();
+        skinFactory.createComboBox().display();
+        skinFactory.createTextField().display();
+
 
     }
 
